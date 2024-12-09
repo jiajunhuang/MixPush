@@ -105,6 +105,8 @@ public class MiPushProvider extends MixPushProvider {
     }
 
     protected Message toMessage(MixPushMessage mixPushMessage) {
+        // https://github.com/taoweiji/MixPush/issues/81
+        int randomInt = (int) (Math.random() * Integer.MAX_VALUE);
         Message.Builder builder = new Message.Builder()
                 .title(mixPushMessage.getTitle())
                 .description(mixPushMessage.getDescription())
@@ -112,6 +114,7 @@ public class MiPushProvider extends MixPushProvider {
                 .restrictedPackageName(packageName)
                 .timeToLive(mixPushMessage.getConfig().getTimeToLive())
                 .notifyType(1)     // 使用默认提示音提示
+                .notifyId(randomInt) // //可选项, 默认情况下, 通知栏只显示一条推送消息, 如果通知栏要显示多条推送消息, 需要针对不同的消息设置不同的notify_id(相同notify_id的通知栏消息会覆盖之前的)，且要求notify_id为取值在0~2147483647的整数。
                 .passThrough(mixPushMessage.isPassThrough() ? 1 : 0) // 1表示透传消息, 0表示通知栏消息(默认是通知栏消息)
                 .timeToSend(mixPushMessage.getTimeToSend());
         if (mixPushMessage.getConfig().getMiPushChannelId() != null) {

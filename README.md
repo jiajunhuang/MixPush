@@ -1,6 +1,9 @@
-
 ## MixPush：混合推送SDK，快速集成六个厂商推送，共享系统推送通道，杀死也能收到推送，推送到达率90%以上
 [![Download](https://maven-badges.herokuapp.com/maven-central/io.github.mixpush/mixpush-core/badge.svg)](https://search.maven.org/search?q=io.github.mixpush)
+
+
+> 打包命令
+> $ docker run -it --rm -v "$(pwd)":/usr/src/myapp -w /usr/src/myapp openjdk:8 bash
 
 
 

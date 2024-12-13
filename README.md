@@ -5,7 +5,7 @@
 > 打包命令
 > $ docker run -it --rm -v "$(pwd)":/usr/src/myapp -w /usr/src/myapp openjdk:8 bash
 
-> ./gradlew build -x tests
+> ./gradlew build -x test
 
 
 基于 [统一推送联盟](http://chinaupa.com/) 的思想，快速集成了六个厂商的推送平台，共享系统的厂商推送通道，避免APP需要长期在后台运行，杀死APP也能收到推送，大大提高推送到达率。接入有一定的开发成本，需要前后端一起参与才可以完成，如果遇到什么问题可以发Issue提问解答。

@@ -8,6 +8,7 @@ public class MixPushMessageConfig {
     private String oppoPushChannelId;
     private String huaweiPushChannelId;
     // 声音,震动,渠道,icon,retries,时效,重试次数,定时,回执
+    private String vivoCategory;
 
     public String getChannelId() {
         return channelId;
@@ -33,6 +34,10 @@ public class MixPushMessageConfig {
         return huaweiPushChannelId;
     }
 
+    public String getVivoCategory() {
+        return vivoCategory;
+    }
+
     public static class Builder {
         private MixPushMessageConfig config = new MixPushMessageConfig();
 
@@ -48,6 +53,11 @@ public class MixPushMessageConfig {
 
         public Builder vivoSystemMessage(boolean isSystemMessage) {
             config.systemMessage = isSystemMessage;
+            return this;
+        }
+
+        public Builder vivoCategory(String vivoCategory) {
+            config.vivoCategory = vivoCategory;
             return this;
         }
 
@@ -69,6 +79,5 @@ public class MixPushMessageConfig {
             config.huaweiPushChannelId = huaweiPushChannelId;
             return this;
         }
-
     }
 }
